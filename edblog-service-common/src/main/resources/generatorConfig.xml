@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="generator.properties" />
+    <classPathEntry location="${jdbc.driverLocation}" />
+    <context id="appTables" targetRuntime="MyBatis3" defaultModelType="flat">
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+        <plugin type="cn.jsonpop.plugins.mybatis_plugins.BaseEntityPlugin">
+            <property name="suppressJavaInterface" value="false" />
+            <property name="baseEntityPackage" value="cn.jsonpop.edblog.common.base.entity.BaseEntity"/>
+        </plugin>
+       <!-- <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>-->
+
+        <plugin type="cn.jsonpop.plugins.mybatis_plugins.LombokPlugin"/>
+        <plugin type="cn.jsonpop.plugins.mybatis_plugins.BaseMapperGeneratorPlugin">
+            <property name="baseMapperPackage" value="cn.jsonpop.edblog.common.base.mapper.BaseMapper"></property>
+        </plugin>
+        <!-- 注释 -->
+        <commentGenerator type="cn.jsonpop.plugins.mybatis_plugins.RemarksCommentGenerator">
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <jdbcConnection driverClass="${jdbc.driverClass}" connectionURL="${jdbc.connectionURL}" userId="${jdbc.userId}" password="${jdbc.password}">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- 配置自动生成mode生成位置以及其他参数 -->
+        <javaModelGenerator targetPackage="cn.jsonpop.edblog.service.common.posts.entity" targetProject="src/main/java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!-- 配置自动生成mapper.xml映射文件生成的位置 以及其他参数-->
+        <sqlMapGenerator targetPackage="mapper.admin.posts" targetProject="/Users/jieshi/Desktop/MyWork/IDEAProjects/edblog/edblog-service/src/main/resources">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+        <!-- 配置mapper.java接口生成的位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.jsonpop.edblog.service.admin.posts.mapper" targetProject="/Users/jieshi/Desktop/MyWork/IDEAProjects/edblog/edblog-service/src/main/java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+            <!--<property name="basePackage" value="com.jieshi.common.base.support.BaseDao"/>-->
+        </javaClientGenerator>
+
+        <table tableName="ed_posts"
+               enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="fase"
+               enableDeleteByPrimaryKey="fase" enableInsert="false"
+               enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false" />
+            <property name="modelOnly" value="false"/>
+        </table>
+    </context>
+</generatorConfiguration>

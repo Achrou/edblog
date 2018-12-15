@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cn.jsonpop.edblog</groupId>
+        <artifactId>edblog</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <groupId>cn.jsonpop.edblog.service.common</groupId>
+    <artifactId>edblog-service-common</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>edblog-service-common</name>
+    <description></description>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.jsonpop.plugins</groupId>
+            <artifactId>mybatis_plugins</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.jsonpop.edblog.common</groupId>
+            <artifactId>edblog-common-base</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.6</version>
+                <configuration>
+                    <verbose>true</verbose>
+                    <overwrite>true</overwrite>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>cn.jsonpop.plugins</groupId>
+                        <artifactId>mybatis_plugins</artifactId>
+                        <version>1.0</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
