@@ -10,6 +10,105 @@
     <result column="post_password" jdbcType="VARCHAR" property="postPassword" />
     <result column="post_name" jdbcType="VARCHAR" property="postName" />
     <result column="post_modified" jdbcType="TIMESTAMP" property="postModified" />
+    <result column="guid" jdbcType="VARCHAR" property="guid" />
+    <result column="menu_order" jdbcType="INTEGER" property="menuOrder" />
+    <result column="post_type" jdbcType="VARCHAR" property="postType" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="cn.jsonpop.edblog.service.common.posts.entity.EdPosts">
+    <result column="post_content" jdbcType="LONGVARCHAR" property="postContent" />
+    <result column="post_title" jdbcType="LONGVARCHAR" property="postTitle" />
+    <result column="post_excerpt" jdbcType="LONGVARCHAR" property="postExcerpt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, post_author, post_date, post_status, comment_status, post_password, post_name, 
+    post_modified, guid, menu_order, post_type
+  </sql>
+  <sql id="Blob_Column_List">
+    post_content, post_title, post_excerpt
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ed_posts
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <resultMap id="BaseResultMap" type="cn.jsonpop.edblog.service.common.posts.entity.EdPosts">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="post_author" jdbcType="BIGINT" property="postAuthor" />
+    <result column="post_date" jdbcType="TIMESTAMP" property="postDate" />
+    <result column="post_status" jdbcType="VARCHAR" property="postStatus" />
+    <result column="comment_status" jdbcType="VARCHAR" property="commentStatus" />
+    <result column="post_password" jdbcType="VARCHAR" property="postPassword" />
+    <result column="post_name" jdbcType="VARCHAR" property="postName" />
+    <result column="post_modified" jdbcType="TIMESTAMP" property="postModified" />
+    <result column="guid" jdbcType="VARCHAR" property="guid" />
+    <result column="menu_order" jdbcType="INTEGER" property="menuOrder" />
+    <result column="post_type" jdbcType="VARCHAR" property="postType" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="cn.jsonpop.edblog.service.common.posts.entity.EdPosts">
+    <result column="post_content" jdbcType="LONGVARCHAR" property="postContent" />
+    <result column="post_title" jdbcType="LONGVARCHAR" property="postTitle" />
+    <result column="post_excerpt" jdbcType="LONGVARCHAR" property="postExcerpt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, post_author, post_date, post_status, comment_status, post_password, post_name, 
+    post_modified, guid, menu_order, post_type
+  </sql>
+  <sql id="Blob_Column_List">
+    post_content, post_title, post_excerpt
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ed_posts
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <resultMap id="BaseResultMap" type="cn.jsonpop.edblog.service.common.posts.entity.EdPosts">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="post_author" jdbcType="BIGINT" property="postAuthor" />
+    <result column="post_date" jdbcType="TIMESTAMP" property="postDate" />
+    <result column="post_status" jdbcType="VARCHAR" property="postStatus" />
+    <result column="comment_status" jdbcType="VARCHAR" property="commentStatus" />
+    <result column="post_password" jdbcType="VARCHAR" property="postPassword" />
+    <result column="post_name" jdbcType="VARCHAR" property="postName" />
+    <result column="post_modified" jdbcType="TIMESTAMP" property="postModified" />
+    <result column="guid" jdbcType="VARCHAR" property="guid" />
+    <result column="menu_order" jdbcType="INTEGER" property="menuOrder" />
+    <result column="post_type" jdbcType="VARCHAR" property="postType" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="cn.jsonpop.edblog.service.common.posts.entity.EdPosts">
+    <result column="post_content" jdbcType="LONGVARCHAR" property="postContent" />
+    <result column="post_title" jdbcType="LONGVARCHAR" property="postTitle" />
+    <result column="post_excerpt" jdbcType="LONGVARCHAR" property="postExcerpt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, post_author, post_date, post_status, comment_status, post_password, post_name, 
+    post_modified, guid, menu_order, post_type
+  </sql>
+  <sql id="Blob_Column_List">
+    post_content, post_title, post_excerpt
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ed_posts
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <resultMap id="BaseResultMap" type="cn.jsonpop.edblog.service.common.posts.entity.EdPosts">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="post_author" jdbcType="BIGINT" property="postAuthor" />
+    <result column="post_date" jdbcType="TIMESTAMP" property="postDate" />
+    <result column="post_status" jdbcType="VARCHAR" property="postStatus" />
+    <result column="comment_status" jdbcType="VARCHAR" property="commentStatus" />
+    <result column="post_password" jdbcType="VARCHAR" property="postPassword" />
+    <result column="post_name" jdbcType="VARCHAR" property="postName" />
+    <result column="post_modified" jdbcType="TIMESTAMP" property="postModified" />
     <result column="post_parent" jdbcType="BIGINT" property="postParent" />
     <result column="guid" jdbcType="VARCHAR" property="guid" />
     <result column="menu_order" jdbcType="INTEGER" property="menuOrder" />
