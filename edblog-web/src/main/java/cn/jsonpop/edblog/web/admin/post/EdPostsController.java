@@ -3,7 +3,9 @@ package cn.jsonpop.edblog.web.admin.post;
 import cn.jsonpop.edblog.common.base.view.ApiResponse;
 import cn.jsonpop.edblog.common.base.view.PageModel;
 import cn.jsonpop.edblog.service.admin.posts.model.dto.PostListDTO;
+import cn.jsonpop.edblog.service.admin.posts.model.dto.PostLoadDTO;
 import cn.jsonpop.edblog.service.admin.posts.model.vo.PostListVO;
+import cn.jsonpop.edblog.service.admin.posts.model.vo.PostLoadVO;
 import cn.jsonpop.edblog.service.admin.posts.service.EdPostsService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -31,5 +33,11 @@ public class EdPostsController {
     @PostMapping(value = "/list")
     public ApiResponse<PageModel<PostListDTO>> list(@RequestBody PostListVO postListVO) {
         return ApiResponse.success(edPostsService.postList(postListVO));
+    }
+
+    @ApiOperation(value = "信息加载", notes = "信息加载接口")
+    @PostMapping(value = "/load")
+    public ApiResponse<PostLoadDTO> load(@RequestBody PostLoadVO postLoadVO) {
+        return ApiResponse.success(edPostsService.postLoad(postLoadVO));
     }
 }

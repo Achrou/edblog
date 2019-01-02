@@ -1,6 +1,8 @@
 package cn.jsonpop.edblog.service.admin.posts.service.impl;
 
+import cn.jsonpop.edblog.service.admin.posts.model.dto.PostLoadDTO;
 import cn.jsonpop.edblog.service.admin.posts.model.vo.PostListVO;
+import cn.jsonpop.edblog.service.admin.posts.model.vo.PostLoadVO;
 import cn.jsonpop.edblog.service.admin.posts.service.EdPostsService;
 import cn.jsonpop.edblog.service.admin.posts.mapper.EdPostsMapper;
 import cn.jsonpop.edblog.service.admin.posts.model.dto.PostListDTO;
@@ -30,9 +32,20 @@ public class EdPostsServiceImpl implements EdPostsService {
      */
     @Override
     public PageInfo<PostListDTO> postList(PostListVO postListVO) {
-        PageHelper.startPage(1, 10);
+        PageHelper.startPage(postListVO.getCurrent(), postListVO.getSize());
         List<PostListDTO> list = edPostsMapper.postList(postListVO);
         PageInfo<PostListDTO> pageList = new PageInfo<>(list);
         return pageList;
+    }
+
+    /**
+     * 文章信息加载
+     *
+     * @param postLoadVO
+     * @return
+     */
+    @Override
+    public PostLoadDTO postLoad(PostLoadVO postLoadVO) {
+        return edPostsMapper.postLoad(postLoadVO);
     }
 }

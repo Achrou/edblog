@@ -15,4 +15,21 @@
         '-' AS 'pic'
         FROM ed_posts
     </select>
+
+    <select id="postLoad" parameterType="cn.jsonpop.edblog.service.admin.posts.model.vo.PostLoadVO"
+            resultType="cn.jsonpop.edblog.service.admin.posts.model.dto.PostLoadDTO">
+        SELECT
+        id ,
+        'test' as 'guid' ,
+        post_title AS 'title' ,
+        post_author AS 'author' ,
+        '自学教程' AS 'category' ,
+        '-' AS 'tag' ,
+        '-' AS 'comment' ,
+        post_modified AS 'modified' ,
+        '-' AS 'pic' ,
+        post_content AS 'content'
+        FROM ed_posts
+        where id = #{id}
+    </select>
 </mapper>

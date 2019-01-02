@@ -1,7 +1,9 @@
 package cn.jsonpop.edblog.service.admin.posts.service;
 
 import cn.jsonpop.edblog.service.admin.posts.model.dto.PostListDTO;
+import cn.jsonpop.edblog.service.admin.posts.model.dto.PostLoadDTO;
 import cn.jsonpop.edblog.service.admin.posts.model.vo.PostListVO;
+import cn.jsonpop.edblog.service.admin.posts.model.vo.PostLoadVO;
 import com.github.pagehelper.PageInfo;
 
 /**
@@ -18,4 +20,12 @@ public interface EdPostsService {
      * @return
      */
     PageInfo<PostListDTO> postList(PostListVO postListVO);
+
+    /**
+     * 文章信息加载
+     *
+     * @param postLoadVO
+     * @return
+     */
+    PostLoadDTO postLoad(PostLoadVO postLoadVO);
 }

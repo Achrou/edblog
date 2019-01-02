@@ -14,23 +14,23 @@ public class PageVO extends BaseVO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("当前页码")
-    private Integer curPage;
+    private Integer current;
     @ApiModelProperty("每页条目")
-    private Integer pageSize;
+    private Integer size;
 
-    public Integer getCurPage() {
-        return curPage == null ? 1 : curPage;
+    public Integer getCurrent() {
+        return current == null ? 1 : current;
     }
 
-    public void setCurPage(Integer curPage) {
-        this.curPage = curPage;
+    public void setCurrent(Integer current) {
+        this.current = current;
     }
 
-    public Integer getPageSize() {
-        return pageSize == null ? 10 : pageSize;
+    public Integer getSize() {
+        return size == null ? 10 : size;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    public void setSize(Integer size) {
+        this.size = size;
     }
 }
