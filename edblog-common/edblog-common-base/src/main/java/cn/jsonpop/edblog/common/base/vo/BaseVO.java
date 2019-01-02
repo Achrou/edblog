@@ -15,7 +15,7 @@ public class BaseVO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String token;
-    private long tokenTimeOut;
+    /*private String token;
+    private long tokenTimeOut;*/
 
 }

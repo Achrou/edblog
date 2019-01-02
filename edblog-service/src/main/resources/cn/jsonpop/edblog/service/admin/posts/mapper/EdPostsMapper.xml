@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jsonpop.edblog.service.admin.posts.mapper.EdPostsMapper">
+    <select id="postList" parameterType="cn.jsonpop.edblog.service.admin.posts.model.vo.PostListVO"
+            resultType="cn.jsonpop.edblog.service.admin.posts.model.dto.PostListDTO">
+        SELECT
+        id ,
+        'test' as 'guid' ,
+        post_title AS 'title' ,
+        post_author AS 'author' ,
+        '自学教程' AS 'category' ,
+        '-' AS 'tag' ,
+        '-' AS 'comment' ,
+        post_modified AS 'modified' ,
+        '-' AS 'pic'
+        FROM ed_posts
+    </select>
+</mapper>

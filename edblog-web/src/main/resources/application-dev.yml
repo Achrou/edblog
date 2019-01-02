@@ -1,0 +1,63 @@
+server:
+  port: 8080
+#  servlet:
+#    context-path: /edblog
+spring:
+  redis:
+    host: 39.106.192.131
+    port: 6379
+    password:
+    database: 1
+    timeout: 60s
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1s
+        max-idle: 8
+        min-idle: 0
+#c3p0数据库连接池配置
+c3p0:
+  jdbcUrl: jdbc:mysql://39.106.192.131/EDBlog?useSSL=false
+  user: qianqian
+  password: qq123456789
+  driverClass: com.mysql.jdbc.Driver
+  minPoolSize: 2
+  maxPoolSize: 10
+  maxIdleTime: 1800000
+  acquireIncrement: 3
+  maxStatements: 1000
+  initialPoolSize: 3
+  idleConnectionTestPeriod: 60
+  acquireRetryAttempts: 30
+  acquireRetryDelay: 1000
+  breakAfterAcquireFailure: false
+  testConnectionOnCheckout: false
+
+#分页配置
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params:
+    count: countSql
+
+#扫描映射文件 cn/jsonpop/edblog/service/**/**/**/*.xml
+#mybatis:
+#  mapper-locations: classpath*:mapper/**/**/*.xml
+mapper:
+  mappers: cn.jsonpop.edblog.common.base.mapper.BaseMapper
+  not-empty: false
+  identity: MYSQL
+
+#swagger2配置信息
+swagger2:
+  enable: true
+  basePackage: cn.jsonpop.edblog.web
+  title: API开发文档
+  desc:
+  termsOfServiceUrl: jsonpop.cn
+  version: 1.0
+
+logging:
+  level:
+    cn.jsonpop.edblog.service: debug

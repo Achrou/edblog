@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
@@ -35,14 +34,14 @@ import java.util.Set;
 @SuppressWarnings(value = {"all"})
 public class RedisCacheConfig {
 
-    @Bean
+    /*@Bean
     public ObjectMapper objectMapper() {
         ObjectMapper om = new ObjectMapper();
         om.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         om.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
         om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL); //补上
         return om;
-    }
+    }*/
 
     @Bean
     public GenericJackson2JsonRedisSerializer genericJackson2JsonRedisSerializer(ObjectMapper om) {
